@@ -12,6 +12,8 @@ int check_cycle(listint_t *list)
 {
 	listint_t *p, *q; /*p - step of 1, q - step of 3*/
 
+	if (list == NULL)
+		return (0);
 	p = list;
 	q = list;
 	while (p != NULL || q != NULL)
