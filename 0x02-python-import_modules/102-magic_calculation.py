@@ -9,5 +9,5 @@ def magic_calculation(a, b):
             c = c + i
         return c
     else:
-        return sub(a, b)
+        return sub(b, a)
     return 0
