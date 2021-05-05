@@ -50,7 +50,11 @@ int is_palindrome(listint_t **head)
 	for (start = 0, end = len - 1; start < end; start++, end--)
 	{
 		if (nArr[start] != nArr[end])
+		{
+			free(nArr);
 			return (0);
+		}
 	}
+	free(nArr);
 	return (1);
 }
