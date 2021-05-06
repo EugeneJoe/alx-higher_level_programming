@@ -7,6 +7,8 @@ def weight_average(my_list=[]):
        my_list format: each element is a tuple of the form
                        (<score>, <weight>)
     """
+    if len(my_list) == 0:
+        return 0
     prod = 0
     weight_sum = 0
     for i in range(len(my_list)):
