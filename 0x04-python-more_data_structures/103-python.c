@@ -29,6 +29,20 @@ void print_python_list(PyObject *p)
 
 void print_python_bytes(PyObject *p)
 {
+	const char *str;
+	PyObject *pystr, *pystr2;
+
 	printf("[.] bytes object info\n");
-	printf("  size: %ld\n", (((PyVarObject *)(p))->ob_size));
+	if (!PyBytes_Check(p))
+	{
+		printf("  [ERROR] Invalid Bytes Object\n");
+	}
+	else
+	{
+		printf("  size: %ld\n", (((PyVarObject *)(p))->ob_size));
+		pystr = PyObject_Repr(p);
+		pystr2 = PyUnicode_AsEncodedString(pystr, "utf-8", "Error ~");
+		str = PyBytes_AS_STRING(pystr2);
+		printf("  trying string: %s\n", str);
+	}
 }
