@@ -1,6 +1,12 @@
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
 
+/**
+ * print_python_bytes - prints some basic info about python bytes
+ * @p: pointer to PyObject object/list
+ *
+ * Return: no return value (void)
+ */
 void print_python_bytes(PyObject *p)
 {
 	long int size = 0, i = 0;
@@ -28,22 +34,22 @@ void print_python_bytes(PyObject *p)
 }
 
 /**
- * print_python_list_info - prints some basic info about python lists
+ * print_python_list - prints some basic info about python lists
  * @p: pointer to PyObject object/list
  *
  * Return: no return value (void)
  */
 void print_python_list(PyObject *p)
 {
-        PyObject *obj;
-        long int i = 0, len = 0;
+	PyObject *obj;
+	long int i = 0, len = 0;
 
-        if (PyList_Check(p))
-        {
+	if (PyList_Check(p))
+	{
 		len = PyList_Size(p);
 		printf("[*] Python list info\n");
-                printf("[*] Size of the Python List = %ld\n", len);
-                printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
+		printf("[*] Size of the Python List = %ld\n", len);
+		printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
 
 		while (i < len)
 		{
