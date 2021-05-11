@@ -1,0 +1,5 @@
+def magic_calculation(a, b):
+    b = a ** b
+    return a + b
+
+magic_calculation(2, 3)
