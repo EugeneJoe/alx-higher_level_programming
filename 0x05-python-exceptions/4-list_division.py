@@ -27,4 +27,6 @@ def list_division(my_list_1, my_list_2, list_length):
             res_1.append(0)
         else:
             res_1.append(res)
+        finally:
+            pass
     return res_1
