@@ -15,7 +15,7 @@ def list_division(my_list_1, my_list_2, list_length):
     res = 0
     for n in range(0, list_length):
         try:
-            res = float(my_list_1[n]) / my_list_2[n]
+            res = my_list_1[n] / my_list_2[n]
             res_1.append(res)
         except ZeroDivisionError:
             print("division by 0")
