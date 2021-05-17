@@ -17,7 +17,7 @@ void print_python_float(PyObject *p)
 	}
 	else
 	{
-		printf("  value: %g\n", (((PyFloatObject *)(p))->ob_fval));
+		printf("  value: %.9g\n", (((PyFloatObject *)(p))->ob_fval));
 	}
 }
 
