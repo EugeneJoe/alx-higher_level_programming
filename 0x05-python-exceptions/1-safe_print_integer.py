@@ -2,7 +2,7 @@
 
 
 def safe_print_integer(value):
-    """Print value with {:d}.format() format specifier and handle any TypeError
+    """Print value with {:d}.format() format specifier and handle any ValueError
        exceptions.
 
     """
@@ -10,5 +10,4 @@ def safe_print_integer(value):
         print("{:d}".format(value))
     except ValueError:
         return False
-    else:
-        return True
+    return True
