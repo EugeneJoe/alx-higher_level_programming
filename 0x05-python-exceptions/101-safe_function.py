@@ -3,7 +3,7 @@ import sys
 
 
 def safe_function(fct, *args):
-    """Executes a function safely and prints an error message, if any, to stderr"""
+    """Execute functions safely and prints error messages, if any, to stderr"""
 
     try:
         return fct(*args)
