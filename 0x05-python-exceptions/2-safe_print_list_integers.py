@@ -16,7 +16,7 @@ def safe_print_list_integers(my_list=[], x=0):
         for n in range(0, x):
             if type(my_list[n]) is int:
                 print("{:d}".format(my_list[n]), end="")
-                count+=1
+                count += 1
         print()
     except IndexError as IE:
         raise
