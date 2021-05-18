@@ -8,11 +8,9 @@ class MagicClass:
     def __init__(self, radius=0):
         """Initializes an instance of MagicClass class"""
 
-        if type(radius) is not int:
-            if type(radius) is not float:
+        if type(radius) is not int or type(radius) is not float:
                 raise TypeError("radius must be a number")
-        else:
-            self.__radius = radius
+        self.__radius = radius
 
     def area(self):
         """Return area of the object"""
