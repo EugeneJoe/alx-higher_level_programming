@@ -5,7 +5,7 @@
 class MagicClass:
     """Definition of class MagicClass"""
 
-    def __init__(self, radius=0):
+    def __init__(self, radius):
         """Initializes an instance of MagicClass class"""
 
         self.__radius = 0
