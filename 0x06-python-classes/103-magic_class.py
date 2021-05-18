@@ -15,7 +15,7 @@ class MagicClass:
         """Return area of the object
 
         Args:
-            math.pi (int): pi 
+            math.pi (int): pi
         """
         return (self.__radius ** 2) * math.pi
 
