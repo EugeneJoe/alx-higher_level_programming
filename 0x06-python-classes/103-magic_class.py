@@ -1,0 +1,25 @@
+#!/usr/bin/python
+"""Contains the definition for a MagicClass class"""
+
+
+class MagicClass:
+    """Definition of class MagicClass"""
+
+    def __init__(self, radius=0):
+        """Initializes an instance of MagicClass class"""
+
+        if type(radius) is not int:
+            if type(radius) is not float:
+                raise TypeError("radius must be a number")
+        else:
+            self.__radius = radius
+
+    def area(self):
+        """Return area of the object"""
+
+        return (self.__radius ** 2) * math.pi
+
+    def circumference(self):
+        """Return circumference of the object"""
+
+        return 2 * math.pi * self.__radius
