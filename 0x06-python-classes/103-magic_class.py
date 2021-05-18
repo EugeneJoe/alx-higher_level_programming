@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """Contains the definition for a MagicClass class"""
 
 
