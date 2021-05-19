@@ -18,9 +18,9 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
-        if type(position) is tuple:
-            if type(position[0]) is int and type(position[1]) is int:
-                if position[0] >= 0 and position[1] >= 0:
+        if type(position) is tuple and (type(position[0]) is int
+           and type(position[1]) is int and
+           position[0] >= 0 and position[1] >= 0):
                     self.__position = position
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -57,9 +57,9 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if type(value) is tuple:
-            if type(value[0]) is int and type(value[1]) is int:
-                if value[0] >= 0 and value[1] >= 0:
+        if type(value) is tuple and (type(value[0]) is int
+           and type(value[1]) is int and
+           value[0] >= 0 and value[1] >= 0):
                     self.__position = value
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -70,7 +70,10 @@ class Square:
         return self.__size ** 2
 
     def my_print(self):
-        """Prints in stdout the square with the character '#'"""
+        """Prints in stdout the square with the character '#'.
+        Takes into account the position attribute to determine where to print
+        the square.
+        """
 
         if self.__size == 0:
             print()
