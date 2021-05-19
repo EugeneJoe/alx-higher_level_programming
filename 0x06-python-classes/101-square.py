@@ -18,9 +18,10 @@ class Square:
             raise ValueError("size must be >= 0")
         else:
             self.__size = size
-        if type(position) is tuple:
-            if type(position[0]) is int and type(position[1]) is int:
-                if position[0] >= 0 and position[1] >= 0:
+        if type(position) is tuple and (len(position) == 2 and
+                                        type(position[0]) is int and
+                                        type(position[1]) is int and
+                                        position[0] >= 0 and position[1] >= 0):
                     self.__position = position
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -57,9 +58,10 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if type(value) is tuple:
-            if type(value[0]) is int and type(value[1]) is int:
-                if value[0] >= 0 and value[1] >= 0:
+        if type(value) is tuple and (len(value) == 2 and
+                                        type(value[0]) is int and
+                                        type(value[1]) is int and
+                                        value[0] >= 0 and value[1] >= 0):
                     self.__position = value
         else:
             raise TypeError("position must be a tuple of 2 positive integers")
@@ -81,7 +83,7 @@ class Square:
             for i in range(0, self.__position[1]):
                 print()
             for n in range(0, self.__size):
-                print('_' * self.__position[0], end="")
+                print(' ' * self.__position[0], end="")
                 print('#' * self.__size)
 
     def __str__(self):
@@ -98,7 +100,7 @@ class Square:
                 res.append('\n')
             for n in range(0, self.__size):
                 for l in range(0, self.__position[0]):
-                    res.append('_')
+                    res.append(' ')
                 for k in range(0, self.__size):
                     res.append('#')
                 if n != self.__size - 1:
