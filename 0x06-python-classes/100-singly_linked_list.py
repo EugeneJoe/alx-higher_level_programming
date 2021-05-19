@@ -14,9 +14,9 @@ class Node:
         if type(data) is not int:
             raise TypeError("data must be an integer")
         else:
-            self.__data = data
+            self.data = data
         if isinstance(next_node, Node) or next_node is None:
-            self.__next_node = next_node
+            self.next_node = next_node
         else:
             raise TypeError("next_node must be a Node object")
 
@@ -65,6 +65,7 @@ class SinglyLinkedList:
 
         new = Node(value)
         if self.__head is None:
+            new.next_node = None
             self.__head = new
         elif self.__head.data > value:
             new.next_node = self.__head
@@ -80,7 +81,7 @@ class SinglyLinkedList:
         """Depict the linked list as a string"""
         temp = self.__head
         ss = []
-        while temp:
+        while temp is not None:
             ss.append(str(temp.data))
             ss.append('\n')
             temp = temp.next_node
