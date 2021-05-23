@@ -12,16 +12,10 @@ def text_indentation(text):
     if not isinstance(text, str):
         raise TypeError("text must be a string")
 
-    t1 = text.strip()
-    t2 = t1.replace(". ", ".")
-    t3 = t2.replace(": ", ":")
-    t4 = t3.replace("? ", "?")
-    for c in t4:
-        if c == '.':
-            print(".\n")
-        elif c == '?':
-            print("?\n")
-        elif c == ':':
-            print(":\n")
-        else:
-            print(c, end='')
+    ss = 0
+    for i, j in enumerate(text):
+        if j in '.?:':
+            print(text[ss: i + 1].strip() + '\n')
+            ss = i + 1
+    if ss < len(text):
+        print(text[ss:].strip(), end="")
