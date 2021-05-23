@@ -15,8 +15,12 @@ class TestMaxInteger(unittest.TestCase):
         self.assertEqual(max_integer("We ni J mi ni nare"), 'r')
         self.assertEqual(max_integer((1, 3, 12, 54)), 54)
         self.assertEqual(max_integer(',.;/'), ';')
+        self.assertEqual(max_integer([]), None)
+        self.assertEqual(max_integer([2547]), 2547)
+        self.assertEqual(max_integer([-1, -6, -8]), -1)
 
     def test_values(self):
         """Make sure right errors are raised for wrong data types passed"""
 
         self.assertRaises(TypeError, max_integer, 12)
+        self.assertRaises(TypeError, max_integer, True)
