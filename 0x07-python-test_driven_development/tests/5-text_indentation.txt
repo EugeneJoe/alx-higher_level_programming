@@ -28,3 +28,12 @@ TypeError: text_indentation() missing 1 required positional argument: 'text'
 
 Check for when empty string is passed
 >>> text_indentation("   ")
+
+>>> text_indentation("   Hello human. This must be very        ?      awkward: no")
+Hello human.
+<BLANKLINE>
+This must be very        ?
+<BLANKLINE>
+awkward:
+<BLANKLINE>
+no
