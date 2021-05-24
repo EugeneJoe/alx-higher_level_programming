@@ -90,14 +90,14 @@ class Rectangle:
 
         """
 
-        rect = []
+        rect = ''
         if self.__height == 0 or self.__width == 0:
             return ''
         for n in range(0, self.__height):
-            rect.append(type(self).print_symbol * self.__width)
+            rect += (str(self.print_symbol) * self.__width)
             if n != self.__height - 1:
-                rect.append('\n')  # To ensure no extra blank line is added
-        return ''.join(rect)
+                rect += '\n'  # To ensure no extra blank line is added
+        return rect
 
     def __repr__(self):
         """Return a string representation of the rectangle.
