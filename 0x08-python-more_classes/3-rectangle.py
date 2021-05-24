@@ -87,5 +87,5 @@ class Rectangle:
         for n in range(0, self.__height):
             rect.append('#' * self.__width)
             if n != self.__height - 1:
-                rect.append('\n') #To ensure when printed, no extra blank line is added
+                rect.append('\n')  # To ensure no extra blank line added
         return ''.join(rect)
