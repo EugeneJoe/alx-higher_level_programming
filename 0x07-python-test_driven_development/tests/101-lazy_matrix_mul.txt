@@ -4,46 +4,47 @@ The ''101-lazy_matrix_mul'' module
 Using ''lazy_matrix_mul''
 ---------------------
 >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
+
 >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
 [[7, 10], [15, 22]]
+
 >>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
 [[13, 16]]
->>> lazy_matrix_mul("Radio", [[1, 2], [4, 5]])
+
+>>> lazy_matrix_mul([[1, 2, 6], [3, 4, 6], [5, 6, 6]], [[1, 2], [3, 4]])
 Traceback (most recent call last):
-TypeError: m_a must be a list
->>> lazy_matrix_mul([[1, 2], [4, 5]], "Radio")
+	    ...
+ValueError: shapes (3,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
+>>> lazy_matrix_mul([[1, 2, 6], [3, 4, 6], [5, 6, 6]], None)
 Traceback (most recent call last):
-TypeError: m_b must be a list
->>> lazy_matrix_mul([12, "Nana"], [[1, 2], [4, 6]])
+	    ...
+TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+>>> lazy_matrix_mul(None, None)
 Traceback (most recent call last):
-TypeError: m_a must be a list of lists
->>> lazy_matrix_mul([[1, 2], [5, 8]], [12, "Nana"])
+	    ...
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'NoneType'
+>>> lazy_matrix_mul([[1, "str"], [3, 4], [5, 6]], [[1, 2], [3, 4]])
 Traceback (most recent call last):
-TypeError: m_b must be a list of lists
->>> lazy_matrix_mul([], [[1, 2], [7, 8]])
+	    ...
+ValueError: data type must provide an itemsize
+>>> lazy_matrix_mul([[1, "str"], [3, 4], [5, 6]], [['5', 2], [3, 4]])
 Traceback (most recent call last):
-ValueError: m_a can't be empty
->>> lazy_matrix_mul([[1, 2], [7, 8]], [])
+	    ...
+ValueError: data type must provide an itemsize
+>>> lazy_matrix_mul("string", "string")
 Traceback (most recent call last):
-ValueError: m_b can't be empty
->>> lazy_matrix_mul([[12, "Nana"]], [[1, 2], [4, 6]])
+	    ...
+numpy.core._exceptions._UFuncNoLoopError: ufunc 'multiply' did not contain a\
+loop with signature matching types (dtype('<U6'), dtype('<U6')) -> dtype('<U6')
+>>> print(lazy_matrix_mul([[1, 2]], [[3, 4, 8], [5, 6]]))
+VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (\
+which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths\
+or shapes) is deprecated. If you meant to do this, you must specify\
+'dtype=object' when creating the ndarray.
+
+>>> print(lazy_matrix_mul([[]], [[]]))
 Traceback (most recent call last):
-TypeError: m_a should contain only integers or floats
->>> lazy_matrix_mul([[1, 2], [4, 8]], [[12, "Nana"]])
-Traceback (most recent call last):
-TypeError: m_b should contain only integers or floats
->>> lazy_matrix_mul([[1, 2, 2], [4, 7]], [[7, 8], [4, 6]])
-Traceback (most recent call last):
-TypeError: each row of m_a must be of the same size
->>> lazy_matrix_mul([[1, 2, 2], [4, 7, 8]], [[7, 8, 8], [4, 6]])
-Traceback (most recent call last):
-TypeError: each row of m_b must be of the same size
->>> lazy_matrix_mul([[1, 5, 8]], [[1, 5, 8], [5, 8, 9]])
-Traceback (most recent call last):
-ValueError: m_a and m_b can't be multiplied
->>> lazy_matrix_mul([[1, 2, 3]])
-Traceback (most recent call last):
-TypeError: lazy_matrix_mul() missing 1 required positional argument: 'm_b'
->>> lazy_matrix_mul()
-Traceback (most recent call last):
-TypeError: lazy_matrix_mul() missing 2 required positional arguments: 'm_a' and 'm_b'
+	    ...
+ValueError: shapes (1,0) and (1,0) not aligned: 0 (dim 1) != 1 (dim 0)
+>>> print(lazy_matrix_mul([1, 2, 3], [[1], [2], [3]]))
+[14]
