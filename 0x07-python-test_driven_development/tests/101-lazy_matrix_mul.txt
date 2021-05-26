@@ -5,11 +5,12 @@ Using ''lazy_matrix_mul''
 ---------------------
 >>> lazy_matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
 
->>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
-[[7, 10], [15, 22]]
+>>> print(lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]]))
+[[ 7 10]
+ [15 22]]
 
->>> lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]])
-[[13, 16]]
+>>> print(lazy_matrix_mul([[1, 2]], [[3, 4], [5, 6]]))
+[[13 16]]
 
 >>> lazy_matrix_mul([[1, 2, 6], [3, 4, 6], [5, 6, 6]], [[1, 2], [3, 4]])
 Traceback (most recent call last):
@@ -23,6 +24,15 @@ TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
 Traceback (most recent call last):
 	    ...
 TypeError: unsupported operand type(s) for *: 'NoneType' and 'NoneType'
+
+>>> print(lazy_matrix_mul("Holberton", [[1, 2], [4, 5]]))
+Traceback (most recent call last):
+TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U21') dtype('<U21') dtype('<U21')
+
+>>> print(lazy_matrix_mul([[1, 2], [4, 5]], "Holberton"))
+Traceback (most recent call last):
+TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U21') dtype('<U21') dtype('<U21')
+
 >>> lazy_matrix_mul([[1, "str"], [3, 4], [5, 6]], [[1, 2], [3, 4]])
 Traceback (most recent call last):
 	    ...
@@ -34,13 +44,9 @@ ValueError: data type must provide an itemsize
 >>> lazy_matrix_mul("string", "string")
 Traceback (most recent call last):
 	    ...
-numpy.core._exceptions._UFuncNoLoopError: ufunc 'multiply' did not contain a\
-loop with signature matching types (dtype('<U6'), dtype('<U6')) -> dtype('<U6')
+TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U6') dtype('<U6') dtype('<U6')
 >>> print(lazy_matrix_mul([[1, 2]], [[3, 4, 8], [5, 6]]))
-VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (\
-which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths\
-or shapes) is deprecated. If you meant to do this, you must specify\
-'dtype=object' when creating the ndarray.
+[list([3, 4, 8, 5, 6, 5, 6])]
 
 >>> print(lazy_matrix_mul([[]], [[]]))
 Traceback (most recent call last):
