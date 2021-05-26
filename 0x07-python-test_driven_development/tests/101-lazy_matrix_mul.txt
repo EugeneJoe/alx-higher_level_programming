@@ -16,20 +16,22 @@ Using ''lazy_matrix_mul''
 Traceback (most recent call last):
 	    ...
 ValueError: shapes (3,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
+
 >>> lazy_matrix_mul([[1, 2, 6], [3, 4, 6], [5, 6, 6]], None)
 Traceback (most recent call last):
 	    ...
 TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
+
 >>> lazy_matrix_mul(None, None)
 Traceback (most recent call last):
 	    ...
 TypeError: unsupported operand type(s) for *: 'NoneType' and 'NoneType'
 
->>> print(lazy_matrix_mul("Holberton", [[1, 2], [4, 5]]))
+>>> lazy_matrix_mul("Holberton", [[1, 2], [4, 5]])
 Traceback (most recent call last):
 TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U21') dtype('<U21') dtype('<U21')
 
->>> print(lazy_matrix_mul([[1, 2], [4, 5]], "Holberton"))
+>>> lazy_matrix_mul([[1, 2], [4, 5]], "Holberton")
 Traceback (most recent call last):
 TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U21') dtype('<U21') dtype('<U21')
 
@@ -52,5 +54,22 @@ TypeError: ufunc 'multiply' did not contain a loop with signature matching types
 Traceback (most recent call last):
 	    ...
 ValueError: shapes (1,0) and (1,0) not aligned: 0 (dim 1) != 1 (dim 0)
+
 >>> print(lazy_matrix_mul([1, 2, 3], [[1], [2], [3]]))
 [14]
+
+>>> lazy_matrix_mul([[5, "6"], [7, 8]], [[5, 6], [7, 8]])
+Traceback (most recent call last):
+ValueError: data type must provide an itemsize
+
+>>> lazy_matrix_mul([[5, 6], [7, 8]], [[5, "6"], [7, 8]])
+Traceback (most recent call last):
+ValueError: data type must provide an itemsize
+
+>>> print(lazy_matrix_mul([[5, 6], [7, 8]], [[5, 6, 1], [7, 8]]))
+[list([5, 6, 1, 5, 6, 1, 5, 6, 1, 5, 6, 1, 5, 6, 1, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8])
+ list([5, 6, 1, 5, 6, 1, 5, 6, 1, 5, 6, 1, 5, 6, 1, 5, 6, 1, 5, 6, 1, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8, 7, 8])]
+
+>>> print(lazy_matrix_mul([[1, 2, 3], [3, 4, 5]], [[1, 2], [3, 4]]))
+Traceback (most recent call last):
+ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
