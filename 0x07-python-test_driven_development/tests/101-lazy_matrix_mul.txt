@@ -17,24 +17,6 @@ Traceback (most recent call last):
 	    ...
 ValueError: shapes (3,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
 
->>> lazy_matrix_mul([[1, 2, 6], [3, 4, 6], [5, 6, 6]], None)
-Traceback (most recent call last):
-	    ...
-TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'
-
->>> lazy_matrix_mul(None, None)
-Traceback (most recent call last):
-	    ...
-TypeError: unsupported operand type(s) for *: 'NoneType' and 'NoneType'
-
->>> lazy_matrix_mul("Holberton", [[1, 2], [4, 5]])
-Traceback (most recent call last):
-TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U21') dtype('<U21') dtype('<U21')
-
->>> lazy_matrix_mul([[1, 2], [4, 5]], "Holberton")
-Traceback (most recent call last):
-TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U21') dtype('<U21') dtype('<U21')
-
 >>> lazy_matrix_mul([[1, "str"], [3, 4], [5, 6]], [[1, 2], [3, 4]])
 Traceback (most recent call last):
 	    ...
@@ -46,7 +28,8 @@ ValueError: data type must provide an itemsize
 >>> lazy_matrix_mul("string", "string")
 Traceback (most recent call last):
 	    ...
-TypeError: ufunc 'multiply' did not contain a loop with signature matching types dtype('<U6') dtype('<U6') dtype('<U6')
+TypeError: m_a must be a list
+
 >>> print(lazy_matrix_mul([[1, 2]], [[3, 4, 8], [5, 6]]))
 [list([3, 4, 8, 5, 6, 5, 6])]
 
@@ -73,3 +56,11 @@ ValueError: data type must provide an itemsize
 >>> print(lazy_matrix_mul([[1, 2, 3], [3, 4, 5]], [[1, 2], [3, 4]]))
 Traceback (most recent call last):
 ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 1) != 2 (dim 0)
+
+>>> lazy_matrix_mul("Holberton", [[1, 2], [4, 5]])
+Traceback (most recent call last):
+TypeError: m_a must be a list
+
+>>> lazy_matrix_mul([[1, 2], [4, 5]], "Holberton")
+Traceback (most recent call last):
+TypeError: m_b must be a list
