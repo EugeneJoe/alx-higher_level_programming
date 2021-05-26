@@ -40,6 +40,7 @@ def is_safe(board, row, column):
 
     return True
 
+
 def print_sols(board):
     """Print the coordinates of placed queens in the solutions
 
@@ -53,6 +54,7 @@ def print_sols(board):
             if board[i][j] == 'Q':
                 sols.append([i, j])
     print(sols)
+
 
 def n_queens(board, row):
     """Find n solutions for NxN board
