@@ -67,6 +67,14 @@ TypeError: size must be an integer
 Traceback (most recent call last):
 TypeError: size must be an integer
 
+>>> base1.integer_validator("", "Joe")
+Traceback (most recent call last):
+TypeError:  must be an integer
+
+>>> base1.integer_validator("size", 1456e3000)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
 >>> base2 = BaseGeometry(4)
 Traceback (most recent call last):
 TypeError: object() takes no parameters
