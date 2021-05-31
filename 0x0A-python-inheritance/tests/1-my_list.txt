@@ -29,3 +29,14 @@ NameError: name 't' is not defined
 [1, 2, 5, 3, -5, 0]
 >>> list1.print_sorted()
 [-5, 0, 1, 2, 3, 5]
+
+
+>>> list2 = MyList()
+>>> list2.append(-5)
+>>> list2.append(-4)
+>>> list2.append(-9)
+>>> list2.append(-1)
+>>> print(list2)
+[-5, -4, -9, -1]
+>>> list2.print_sorted()
+[-9, -5, -4, -1]
