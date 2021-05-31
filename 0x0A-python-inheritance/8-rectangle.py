@@ -12,14 +12,10 @@ class Rectangle(BaseGeometry):
     def __init__(self, width, height):
         """Initialize an instance of class Rectangle"""
 
-        try:
-            super().integer_validator("width", width)
-        except Exception as e:
-            raise e
-        self.__width = width
-
+        super().integer_validator("width", width)
         super().integer_validator("height", height)
         self.__height = height
+        self.__width = width
 
     def area(self):
         raise Exception("area() is not implemented")
