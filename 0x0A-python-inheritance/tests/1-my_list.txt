@@ -23,9 +23,9 @@ Using ''MyList''
 Traceback (most recent call last):
 NameError: name 't' is not defined
 
->>> list1.append("t")
+>>> list1.append(-5)
+>>> list1.append(0)
 >>> print(list1)
-[1, 2, 5, 3, 't']
+[1, 2, 5, 3, -5, 0]
 >>> list1.print_sorted()
-Traceback (most recent call last):
-TypeError: unorderable types: str() < int()
+[-5, 0, 1, 2, 3, 5]
