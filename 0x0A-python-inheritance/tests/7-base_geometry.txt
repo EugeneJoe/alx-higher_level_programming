@@ -1,0 +1,35 @@
+The ''7-base_geometry.txt''
+============================
+
+Using ''BaseGeometry''
+---------------------
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> base1 = BaseGeometry()
+>>> base1.integer_validator("size", 5)
+
+>>> base1.integer_validator("size", "jj")
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> base1.integer_validator("size", "[1, 2, 3]")
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> base1.integer_validator("size", "5.365")
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> base1.integer_validator(9, 5)
+
+>>> base1.integer_validator(9, "jj")
+Traceback (most recent call last):
+TypeError: 9 must be an integer
+
+>>> base1.integer_validator("size", -5)
+Traceback (most recent call last):
+ValueError: size must be greater than 0
+
+>>> base1.integer_validator(6, -5)
+Traceback (most recent call last):
+ValueError: 6 must be greater than 0
