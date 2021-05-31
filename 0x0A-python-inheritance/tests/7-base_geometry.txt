@@ -87,9 +87,18 @@ TypeError: size must be an integer
 Traceback (most recent call last):
 TypeError: size must be an integer
 
+>>> base1.integer_validator("size", float('inf'))
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+
 >>> base1.integer_validator("size", (1,))
 Traceback (most recent call last):
 TypeError: size must be an integer
+
+>>> base1.area(32)
+Traceback (most recent call last):
+TypeError: area() takes 1 positional argument but 2 were given
 
 >>> base2 = BaseGeometry(4)
 Traceback (most recent call last):
