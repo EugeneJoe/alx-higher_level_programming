@@ -16,6 +16,9 @@ Using ''MyList''
 >>> list1.print_sorted()
 [1, 2, 3, 5]
 
+>>> print(list1)
+[1, 2, 5, 3]
+
 >>> list1.append(t)
 Traceback (most recent call last):
 NameError: name 't' is not defined
