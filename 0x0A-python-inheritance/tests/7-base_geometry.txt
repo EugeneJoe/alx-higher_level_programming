@@ -37,12 +37,10 @@ ValueError: 6 must be greater than 0
 
 >>> base1.integer_validator("size")
 Traceback (most recent call last):
-...
 TypeError: integer_validator() missing 1 required positional argument: 'value'
 
 >>> base1.integer_validator("size", 1, 5)
 Traceback (most recent call last):
-...
 TypeError: integer_validator() takes 3 positional arguments but 4 were given
 
 >>> base1.area()
@@ -56,6 +54,18 @@ TypeError: integer_validator() missing 2 required positional arguments: 'name' a
 >>> base1.integer_validator("size", 0)
 Traceback (most recent call last):
 ValueError: size must be greater than 0
+
+>>> base1.integer_validator("age", {"Jan": 22, "Feb": 19})
+Traceback (most recent call last):
+TypeError: age must be an integer
+
+>>> base1.integer_validator("size", (4, 5, 6))
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> base1.integer_validator("size", None)
+Traceback (most recent call last):
+TypeError: size must be an integer
 
 >>> base2 = BaseGeometry(4)
 Traceback (most recent call last):
