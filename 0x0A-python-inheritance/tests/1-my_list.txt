@@ -40,3 +40,7 @@ NameError: name 't' is not defined
 [-5, -4, -9, -1]
 >>> list2.print_sorted()
 [-9, -5, -4, -1]
+
+>>> list3 = MyList()
+>>> print(list3)
+[]
