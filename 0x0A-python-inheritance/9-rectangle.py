@@ -12,10 +12,7 @@ class Rectangle(BaseGeometry):
     def __init__(self, width, height):
         """Initialize an instance of class Rectangle"""
 
-        try:
-            super().integer_validator("width", width)
-        except Exception as e:
-            raise e
+        super().integer_validator("width", width)
         self.__width = width
 
         super().integer_validator("height", height)
