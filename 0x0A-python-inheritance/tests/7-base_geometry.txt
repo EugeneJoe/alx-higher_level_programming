@@ -59,7 +59,7 @@ ValueError: size must be greater than 0
 Traceback (most recent call last):
 TypeError: age must be an integer
 
->>> base1.integer_validator("size", (4, 5, 6))
+>>> base1.integer_validator("size", (4, 5))
 Traceback (most recent call last):
 TypeError: size must be an integer
 
@@ -72,6 +72,10 @@ Traceback (most recent call last):
 TypeError:  must be an integer
 
 >>> base1.integer_validator("size", 1456e3000)
+Traceback (most recent call last):
+TypeError: size must be an integer
+
+>>> base1.integer_validator("size", {"Mon", "Thur"}
 Traceback (most recent call last):
 TypeError: size must be an integer
 
