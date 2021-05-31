@@ -12,6 +12,6 @@ def is_same_class(obj, a_class):
         a_class (str): class that obj is suspected to be an instance of
     """
 
-    if type(obj) == a_class
+    if type(obj) == a_class:
         return True
     return False
