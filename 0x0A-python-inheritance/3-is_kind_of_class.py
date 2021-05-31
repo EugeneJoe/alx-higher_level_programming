@@ -5,7 +5,8 @@ Contains the definition of the function is_kind_of_class
 
 
 def is_kind_of_class(obj, a_class):
-    """Returns True if obj is an instance of a_class or a class that inherited from a_class.
+    """Returns True if obj is an instance of a_class/class that inherited
+       from a_class
 
     Args:
         obj (unknown): Object whose type is to be checked
