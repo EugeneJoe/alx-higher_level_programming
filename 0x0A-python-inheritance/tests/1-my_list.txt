@@ -1,0 +1,28 @@
+The ''1-my_list.py'' module
+============================
+
+Using ''MyList''
+---------------------
+>>> MyList = __import__('1-my_list').MyList
+
+>>> list1 = MyList()
+>>> list1.append(1)
+>>> list1.append(2)
+>>> list1.append(5)
+>>> list1.append(3)
+>>> print(list1)
+[1, 2, 5, 3]
+
+>>> list1.print_sorted()
+[1, 2, 3, 5]
+
+>>> list1.append(t)
+Traceback (most recent call last):
+NameError: name 't' is not defined
+
+>>> list1.append("t")
+>>> print(list1)
+[1, 2, 5, 3, 't']
+>>> list1.print_sorted()
+Traceback (most recent call last):
+TypeError: unorderable types: str() < int()
