@@ -44,3 +44,14 @@ NameError: name 't' is not defined
 >>> list3 = MyList()
 >>> print(list3)
 []
+
+>>> my_list = MyList()
+>>> my_list.append("Brennan")
+>>> my_list.append("Poppy")
+>>> my_list.append("School")
+>>> my_list.append("Holberton")
+>>> my_list.append("Betty")
+>>> print(my_list)
+['Brennan', 'Poppy', 'School', 'Holberton', 'Betty']
+>>> my_list.print_sorted()
+['Betty', 'Brennan', 'Holberton', 'Poppy', 'School']
