@@ -11,9 +11,12 @@ def pascal_triangle(n):
         n (int): order of Pascal's triangle to generate
     """
 
+    x = [1]
+    y = [0]
     res = []
     if n <= 0:
         return res
     for i in range(n):
-        res.append([int(k) for k in str(11**i)])
+        res.append(x)
+        x = [lt+rt for lt, rt in zip(x+y, y+x)]
     return res
