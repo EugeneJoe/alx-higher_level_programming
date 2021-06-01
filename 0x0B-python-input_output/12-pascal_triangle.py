@@ -10,7 +10,10 @@ def pascal_triangle(n):
     Args:
         n (int): order of Pascal's triangle to generate
     """
+
     res = []
+    if n <= 0:
+        return res
     for i in range(n):
         res.append([int(k) for k in str(11**i)])
     return res
