@@ -42,5 +42,5 @@ class Student():
             json (dict): a dictionary containing the new attributes to be added
         """
 
-        self.__dict__.clear()
-        self.__dict__.update(json)
+        for key, value in json.items():
+            self.__setattr__(key, value)
