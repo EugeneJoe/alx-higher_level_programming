@@ -30,7 +30,7 @@ class Student():
             attrs (list): a list of attributes to be retrieved
         """
 
-        if attrs:
+        if isinstance(attrs, list):
             return {a: self.__dict__.get(a) for a in attrs if a in
                     self.__dict__.keys()}
         return self.__dict__
