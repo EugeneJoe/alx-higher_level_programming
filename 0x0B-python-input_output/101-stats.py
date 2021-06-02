@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 """
-Script that reads stdin line by line and computes metrics
+Script that reads stdin line by line and computes relevant metrics
 """
 import sys
-import signal
 
 size = 0
 status_tally = {"200": 0, "301": 0, "400": 0, "401": 0,
