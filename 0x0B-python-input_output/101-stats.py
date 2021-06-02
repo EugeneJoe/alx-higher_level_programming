@@ -40,3 +40,4 @@ if __name__ == "__main__":
         for key, value in sorted(status_tally.items()):
             if value:
                 print("{}: {}".format(key, value))
+        raise
