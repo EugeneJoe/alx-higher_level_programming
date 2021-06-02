@@ -57,3 +57,26 @@ NameError: name 't' is not defined
 ['Betty', 'Brennan', 'Holberton', 'Poppy', 'School']
 >>> my_list.pop()
 'Betty'
+>>> my_list.clear()
+>>> my_list.append(1)
+>>> my_list.append(5)
+>>> my_list.append(7)
+>>> my_list.append(9)
+>>> my_list.append(10)
+>>> my_list.append(14)
+>>> my_list.append(21)
+>>> my_list.append(0)
+>>> new_list = my_list.copy()
+>>> new_list
+[1, 5, 7, 9, 10, 14, 21, 0]
+>>> my_list.count(0)
+1
+>>> my_list.index(10)
+4
+>>> my_list.insert(4, 12)
+>>> my_list
+[1, 5, 7, 9, 12, 10, 14, 21, 0]
+>>> my_list.print_sorted(5)
+Traceback (most recent call last):
+TypeError: print_sorted() takes 1 positional argument but 2 were given
+>>> new_list.clear()
