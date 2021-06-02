@@ -30,7 +30,7 @@ if __name__ == "__main__":
                 for key, value in sorted(status_tally.items()):
                     if value:
                         print("{}: {}".format(key, value))
-        print("File size: {:d}".format(file_size))
+        print("File size: {}".format(file_size))
         for key, value in sorted(status_tally.items()):
             if value:
                 print("{}: {}".format(key, value))
@@ -40,4 +40,3 @@ if __name__ == "__main__":
         for key, value in sorted(status_tally.items()):
             if value:
                 print("{}: {}".format(key, value))
-        raise
