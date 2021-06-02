@@ -27,15 +27,15 @@ try:
         if linenum % 10 == 0:
             print("File size: {}".format(size))
             for key, value in sorted(status_tally.items()):
-                if value > 0:
+                if value:
                     print("{}: {}".format(key, value))
     print("File size: {:d}".format(file_size))
     for key, value in sorted(status_tally.items()):
-        if value > 0:
+        if value:
             print("{}: {}".format(key, value))
 
 except KeyboardInterrupt:
     print("File size: {}".format(size))
     for key, value in sorted(status_tally.items()):
-        if value > 0:
+        if value:
             print("{}: {}".format(key, value))
