@@ -3,7 +3,6 @@
 Contains definition of the class Base
 """
 import json
-import os.path
 import csv
 
 
@@ -87,24 +86,19 @@ class Base:
     @classmethod
     def load_from_file(cls):
         """Returns a list of class instances created from json file contents"""
-        filename = str(cls.__name__) + ".json"
+        filename = cls.__name__ + ".json"
         res = []
-        if os.path.isfile(filename):
+
+        try:
             with open(filename, encoding="UTF-8") as f:
-                data = f.read()
-            data = data.strip("]")
-            data = data.strip("[")
-            s, e = 0, 0
-            res = []
-            while 1:
-                s = data.find("{", e)
-                e = data.find("}", s)
-                if s == -1 or e == -1:
-                    return res
-                curr = data[s:e+1]
-                l = cls.from_json_string(curr)
-                temp = cls.create(**l)
-                res.append(temp)
+                data = cls.from_json_string(f.read())
+        except:
+            return []
+
+        for d in data:
+            temp = cls.create(**d)
+            res.append(temp)
+        return res
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
