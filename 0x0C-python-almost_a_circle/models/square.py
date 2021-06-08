@@ -18,8 +18,13 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
-        self.width = value
-        self.height = value
+        if type(value) is int:
+            if value <= 0:
+                raise ValueError("width must be > 0")
+            self.width = value
+            self.height = value
+        else:
+            raise TypeError("width must be an integer")
 
     def __str__(self):
         """Return a string representation of an instance of class Square"""
@@ -33,27 +38,19 @@ class Square(Rectangle):
             kwargs (double pointer): "double pointer" to a dictionary that has
                                      keyword:value pairs
         """
-        if args is not None:
+        if len(args) != 0:
             for i, arg in enumerate(args):
                 if i == 0:
                     self.id = arg
                 elif i == 1:
-                    self.width = arg
-                    self.height = arg
-                elif i == 3:
+                    self.size = arg
+                elif i == 2:
                     self.x = arg
-                elif i == 4:
+                elif i == 3:
                     self.y = arg
-        if kwargs is not None:
-            if "id" in kwargs.keys():
-                self.id = kwargs.get("id")
-            if "size" in kwargs.keys():
-                self.width = kwargs.get("size")
-                self.height = kwargs.get("size")
-            if "x" in kwargs.keys():
-                self.x = kwargs.get("x")
-            if "y" in kwargs.keys():
-                self.y = kwargs.get("y")
+        if kwargs is not None and len(args) == 0:
+            for key, val in kwargs.items():
+                self.__setattr__(key, val)
 
     def to_dictionary(self):
         """Returns dictionary representation of instance of class Rectangle"""
