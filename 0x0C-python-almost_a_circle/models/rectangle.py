@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Contains the definition of class REctangle that inherits from base
+Contains the definition of class Rectangle that inherits from Base
 """
 from models.base import Base
 
@@ -23,12 +23,12 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        if type(value) is int:
+        if type(value) == int:
             if value <= 0:
                 raise ValueError("width must be > 0")
             self.__width = value
         else:
-            raise TypeError("width  must be an integer")
+            raise TypeError("width must be an integer")
 
     @property
     def height(self):
@@ -37,7 +37,7 @@ class Rectangle(Base):
 
     @height.setter
     def height(self, value):
-        if type(value) is int:
+        if type(value) == int:
             if value <= 0:
                 raise ValueError("height must be > 0")
             self.__height = value
@@ -51,7 +51,7 @@ class Rectangle(Base):
 
     @x.setter
     def x(self, value):
-        if type(value) is int:
+        if type(value) == int:
             if value < 0:
                 raise ValueError("x must be >= 0")
             self.__x = value
@@ -65,7 +65,7 @@ class Rectangle(Base):
 
     @y.setter
     def y(self, value):
-        if type(value) is int:
+        if type(value) == int:
             if value < 0:
                 raise ValueError("y must be >= 0")
             self.__y = value
