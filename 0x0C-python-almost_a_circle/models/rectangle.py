@@ -81,14 +81,14 @@ class Rectangle(Base):
         for n in range(self.y):
             print()
         for n in range(self.height):
-            print(" " * self.x, end = "")
+            print(" " * self.x, end="")
             print("#" * self.width)
 
     def __str__(self):
         """Return string object representing the class Rectangle instance"""
         return "[{}] ({}) {}/{} - {}/{}".format(self.__class__.__name__,
-                                                self.id, self.x ,
-                                                self.y, self.width, self.height)
+                                                self.id, self.x, self.y,
+                                                self.width, self.height)
 
     def update(self, *args, **kwargs):
         """Assigns an argument to each attribute
@@ -97,7 +97,7 @@ class Rectangle(Base):
             kwargs (double pointer): "double pointer" to a dictionary that has
                                      keyword:value pairs
         """
-        if args is not None:
+        if len(args) != 0:
             for i, arg in enumerate(args):
                 if i == 0:
                     self.id = arg
@@ -109,7 +109,7 @@ class Rectangle(Base):
                     self.x = arg
                 elif i == 4:
                     self.y = arg
-        if kwargs is not None:
+        if kwargs is not None and len(args) == 0:
             if "id" in kwargs.keys():
                 self.id = kwargs.get("id")
             if "width" in kwargs.keys():
