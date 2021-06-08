@@ -48,9 +48,11 @@ class Base:
                 f.write(to_save)
         else:
             for obj in list_objs:
-                to_save.append(obj.to_dictionary())
+                obj = obj.to_dictionary()
+                json_obj = json.loads(cls.to_json_string(obj))
+                to_save.append(json_obj)
             with open(filename, mode="w", encoding="UTF-8") as f:
-                f.write(cls.to_json_string(to_save))
+                json.dump(to_save, f)
 
     @staticmethod
     def from_json_string(json_string):
