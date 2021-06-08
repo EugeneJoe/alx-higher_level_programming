@@ -74,7 +74,13 @@ class Base:
             dictionary (pointer): "double pointer" to a dictionary containing
                                   keyword:value pairs
         """
-        temp = cls(1, 1)
+        from models.rectangle import Rectangle
+        from models.square import Square
+
+        if cls.__name__ == "Square":
+            temp = Square(1)
+        elif cls.__name__ == "Rectangle":
+            temp = Rectangle(2, 7)
         temp.update(**dictionary)
         return temp
 
