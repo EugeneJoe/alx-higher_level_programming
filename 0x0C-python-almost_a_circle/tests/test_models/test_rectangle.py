@@ -18,6 +18,10 @@ class TestRectangleMethods(unittest.TestCase):
         self.rectangle_2 = Rectangle(1, 3, 2, 1, 3)
         self.rectangle_3 = Rectangle(2, 3, 4)
         self.rectangle_4 = Rectangle(2, 3, 4, 5)
+        try:
+            os.remove("Rectangle.json")
+        except:
+            pass
 
     def tearDown(self):
         """Tear down resources that had been set up to run tests"""
@@ -235,18 +239,22 @@ class TestRectangleMethods(unittest.TestCase):
                                  'x': 3, 'y': 4})
         self.assertEqual(str(r1), str(r2))
 
-    def test_save_to_file_method(self):
+    def test_save_to_file_method_None(self):
         """Test the save_to_file method of the Rectangle class"""
         Rectangle.save_to_file(None)
         with open("Rectangle.json", mode="r", encoding="utf-8") as f:
             data = json.load(f)
         self.assertEqual(data, [])
 
+    def test_save_to_file_method_Empty(self):
+        """Test the save_to_file method of the Rectangle class"""
         Rectangle.save_to_file([])
         with open("Rectangle.json", mode="r", encoding="utf-8") as f:
             data = json.load(f)
         self.assertEqual(data, [])
 
+    def test_save_to_file_method(self):
+        """Test the save_to_file method of the Rectangle class"""
         Rectangle.save_to_file([Rectangle(1, 2, 3, 4, 5)])
         with open("Rectangle.json", mode="r", encoding="utf-8") as f:
             data = json.load(f)
