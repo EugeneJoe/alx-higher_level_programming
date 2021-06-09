@@ -4,6 +4,8 @@ Contains the definition of the test class for the Rectangle class.
 import unittest
 import json
 import os
+import io
+import sys
 from models.rectangle import Rectangle
 
 
@@ -252,9 +254,32 @@ class TestRectangleMethods(unittest.TestCase):
                                  "id": 5}])
 
     def test_load_from_file_method(self):
+        """Test the load_from_file method of the Rectangle class"""
         data = Rectangle.load_from_file()
         self.assertEqual(data, [])
 
         Rectangle.save_to_file([Rectangle(1, 2, 3, 4, 5)])
         rrr = Rectangle.load_from_file()
         self.assertEqual(str(rrr[0]), "[Rectangle] (5) 3/4 - 1/2")
+
+    def test_display_method(self):
+        """Test the display method of the Rectangle class"""
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        self.rectangle_1.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue(), "##\n##\n##\n")
+
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        self.rectangle_3.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue(),
+                         "    ##\n    ##\n    ##\n")
+
+        captured_output = io.StringIO()
+        sys.stdout = captured_output
+        self.rectangle_2.display()
+        sys.stdout = sys.__stdout__
+        self.assertEqual(captured_output.getvalue(),
+                         "\n  #\n  #\n  #\n")
