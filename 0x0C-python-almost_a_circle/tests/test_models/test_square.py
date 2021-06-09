@@ -1,6 +1,8 @@
 """
 Contains the definition of the test class for the Square class.
 """
+import os
+import json
 import unittest
 from models.square import Square
 
@@ -12,11 +14,19 @@ class TestSquareMethods(unittest.TestCase):
         """Set up resources required to run the tests"""
         self.square_1 = Square(2)
         self.square_2 = Square(1, 2, 1, 3)
+        try:
+           os.remove("Square.json")
+        except:
+            pass
 
     def tearDown(self):
         """Tear down resources that had been set up to run tests"""
         del self.square_1
         del self.square_2
+        try:
+            os.remove("Square.json")
+        except:
+            pass
 
     def test_size_assignment(self):
         """Test assignment of width and height attributes"""
@@ -127,11 +137,11 @@ class TestSquareMethods(unittest.TestCase):
 
     def test_update_kwargs(self):
         """Test the update method of the Square class using *kwargs"""
-        self.square_1.update(size=2, id=5)
-        self.assertEqual(str(self.square_1), "[Square] (5) 0/0 - 2")
-        kwargs = {"size": 5, "x": 3, "y": 2, "id": 1}
+        self.square_1.update(size=65, id=5)
+        self.assertEqual(str(self.square_1), "[Square] (5) 0/0 - 65")
+        kwargs = {"size": 5, "x": 5, "y": 8, "id": 122}
         self.square_1.update(**kwargs)
-        self.assertEqual(str(self.square_1), "[Square] (1) 3/2 - 5")
+        self.assertEqual(str(self.square_1), "[Square] (122) 5/8 - 5")
 
     def test_update_args_kwargs(self):
         """Test the update method of the Square class with args and kwargs"""
@@ -139,3 +149,55 @@ class TestSquareMethods(unittest.TestCase):
         kwargs = {"size": 1, "x": 3, "y": 2, "id": 1}
         self.square_1.update(*args, **kwargs)
         self.assertEqual(str(self.square_1), "[Square] (1) 1/1 - 1")
+
+    def test_to_dictionary_method(self):
+        """Test the to_dictionary method of the Rectangle class"""
+        sq = Square(2, 0, 0, 89)
+        self.assertEqual(sq.to_dictionary(),
+                         {'size': 2, 'x': 0, 'y': 0, 'id': 89})
+
+    def test_create_method(self):
+        """Test the create method of the Square class"""
+        r1 = Square(1, 0, 0, 89)
+        r2 = Square.create(**{'id': 89})
+        self.assertEqual(str(r1), str(r2))
+        r1 = Square(1, 0, 0, 89)
+        r2 = Square.create(**{'id': 89, 'size': 1})
+        self.assertEqual(str(r1), str(r2))
+        r1 = Square(1, 3, 0, 89)
+        r2 = Square.create(**{'id': 89, 'size': 1, 'x': 3})
+        self.assertEqual(str(r1), str(r2))
+        r1 = Square(1, 3, 4, 89)
+        r2 = Square.create(**{'id': 89, 'size': 1, 'x': 3, 'y': 4})
+        self.assertEqual(str(r1), str(r2))
+
+    def test_save_to_file_method_None(self):
+        """Test the save_to_file method of the Square class"""
+        Square.save_to_file(None)
+        with open("Square.json", mode="r", encoding="utf-8") as f:
+            data = json.load(f)
+        self.assertEqual(data, [])
+
+    def test_save_to_file_method_Empty(self):
+        """Test the save_to_file method of the Square class"""
+        Square.save_to_file([])
+        with open("Square.json", mode="r", encoding="utf-8") as f:
+            data = json.load(f)
+        self.assertEqual(data, [])
+
+    def test_save_to_file_method(self):
+        """Test the save_to_file method of the Square class"""
+        Square.save_to_file([Square(1, 3, 4, 5)])
+        with open("Square.json", mode="r", encoding="utf-8") as f:
+            data = json.load(f)
+        self.assertEqual(data, [{"size": 1, "x": 3, "y": 4,
+                                 "id": 5}])
+
+    def test_load_from_file_method(self):
+        """Test the load_from_file method of the Square class"""
+        data = Square.load_from_file()
+        self.assertEqual(data, [])
+
+        Square.save_to_file([Square(1, 3, 4, 5)])
+        rrr = Square.load_from_file()
+        self.assertEqual(str(rrr[0]), "[Square] (5) 3/4 - 1")
