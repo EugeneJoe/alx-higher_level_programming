@@ -1,4 +1,5 @@
 -- remove all records with a score <= 5 in the table 'second_table'
 -- of the table hbtn_0c_0
-DELETE from second_table
+DELETE *
+FROM second_table
 WHERE score <= 5;
