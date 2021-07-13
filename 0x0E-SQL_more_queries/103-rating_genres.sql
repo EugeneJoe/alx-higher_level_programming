@@ -1,5 +1,5 @@
 -- Lists all genres in the database hbtn_0d_tvshows_rate by their rating
-SELECT tv_genres.name as name,
+SELECT tv_genres.name AS name,
 SUM(tv_show_ratings.rate) AS rating
 
 FROM tv_genres
