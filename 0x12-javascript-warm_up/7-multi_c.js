@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 let printTimes = parseInt(process.argv[2]);
-if (printTimes !== printTimes) {
+if (isNaN(printTimes) || process.argv[2] === undefined) {
   console.log('Missing number of occurrences');
 } else {
   while (printTimes > 0) {
