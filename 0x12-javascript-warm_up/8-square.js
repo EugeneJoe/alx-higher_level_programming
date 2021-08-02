@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 let size = parseInt(process.argv[2]);
-if (size !== size) {
+if (isNaN(size) || process.argv[2] === undefined) {
   console.log('Missing size');
 }
 let myString = 'X';
