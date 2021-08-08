@@ -24,4 +24,4 @@ if __name__ == "__main__":
                       .order_by(City.id):
         print("{}: {}".format(row.id, row.name))
         for my_city in row.cities:
-            print("\t{}: {}".format(my_city.id, my_city.name))
+            print("    {}: {}".format(my_city.id, my_city.name))
