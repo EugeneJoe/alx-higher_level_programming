@@ -19,6 +19,7 @@ if __name__ == '__main__':
     cursor.execute(SQL)
     cities = cursor.fetchall()
     if cities is not None:
-        print(", ".join(value[0] for value in cities if value[1] == sys.argv[4]))
+        print(", "
+              .join(value[0] for value in cities if value[1] == sys.argv[4]))
     cursor.close()
     db.close()
