@@ -13,11 +13,10 @@ if __name__ == "__main__":
     cursor = db.cursor()
     SQL = "SELECT id, name\
            FROM states\
-           WHERE name = '{}' ORDER BY id ASC".format(sys.argv[4])
+           ORDER BY id ASC"
     cursor.execute(SQL)
     states = cursor.fetchall()
     if states is not None:
-        for row in states:
-            print("({}, '{}')".format(row[0], row[1]))
-        cursor.close()
-        db.close()
+        [print(state) for state in states if state[1] == sys.argv[4]]
+    cursor.close()
+    db.close()
