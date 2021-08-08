@@ -16,5 +16,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    row = session.query(State).order_by(State.id).first()
-    print("{}: {}".format(row.id, row.name))
+    row = session.query(State).order_by(State.id).all()
+    if row is not None:
+        print("{}: {}".format(row[0].id, row[0].name))
+    else:
+        print("")
