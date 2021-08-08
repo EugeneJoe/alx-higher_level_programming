@@ -18,10 +18,7 @@ if __name__ == "__main__":
     session = Session()
 
     for row in session.query(State)\
-                      .join(City)\
-                      .filter(State.id == City.state_id)\
-                      .order_by(State.id)\
-                      .order_by(City.id):
+                      .order_by(State.id):
         print("{}: {}".format(row.id, row.name))
         for my_city in row.cities:
             print("    {}: {}".format(my_city.id, my_city.name))
