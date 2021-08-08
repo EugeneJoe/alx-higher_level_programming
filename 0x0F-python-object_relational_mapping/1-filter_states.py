@@ -15,6 +15,6 @@ if __name__ == "__main__":
     states = cursor.fetchall()
     if states is not None:
         for row in states:
-            print("({}, '{}')".format(row[0], row[1]))
+            print(row)
         cursor.close()
         db.close()
