@@ -13,7 +13,7 @@ if __name__ == "__main__":
     cursor = db.cursor()
     SQL = "SELECT id, name\
            FROM states\
-           WHERE name = '{}'\
+           WHERE BINARY name = '{}'\
            ORDER BY id ASC".format(sys.argv[4])
     cursor.execute(SQL)
     states = cursor.fetchall()
