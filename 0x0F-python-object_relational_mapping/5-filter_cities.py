@@ -15,7 +15,7 @@ if __name__ == '__main__':
            FROM cities\
            INNER JOIN states\
            ON cities.state_id = states.id\
-           WHERE states.name = %(username)s\
+           WHERE BINARY states.name = %(username)s\
            ORDER BY cities.id ASC"
     cursor.execute(SQL, {'username': sys.argv[4]})
     cities = cursor.fetchall()
