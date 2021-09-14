@@ -7,13 +7,12 @@ request(url, function (error, response, body) {
   } else {
     const data = JSON.parse(response.body);
     for (const val of data.characters) {
-      request(val, function (error, response, body) {
+      request(val, function (error, response, body1) {
         if (error) {
           console.log(error);
         } else {
-          let name = JSON.parse(body);
-          name = name.name;
-          console.log(name);
+          const name = JSON.parse(body1);
+          console.log(name.name);
         }
       });
     }
