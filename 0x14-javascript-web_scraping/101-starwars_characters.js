@@ -5,7 +5,7 @@ request(url, function (error, response, body) {
   if (error) {
     console.log(error);
   } else {
-    const data = JSON.parse(response.body);
+    const data = JSON.parse(body);
     for (const val of data.characters) {
       request(val, function (error, response, body1) {
         if (error) {
