@@ -22,7 +22,9 @@ request(process.argv[2], function (error, response, body) {
         user = val.userId;
       }
     }
-    dict[user] = count;
+    if (count > 0) {
+      dict[user] = count;
+    }
     console.log(dict);
   }
 });
