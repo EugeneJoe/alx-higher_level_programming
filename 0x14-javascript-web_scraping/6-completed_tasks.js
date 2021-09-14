@@ -12,8 +12,10 @@ request(process.argv[2], function (error, response, body) {
       if (user === val.userId && val.completed === true) {
         count++;
       } else if (user !== val.userId) {
-        dict[user] = count;
-        count = 0;
+        if (count > 0) {
+          dict[user] = count;
+          count = 0;
+        }
         if (val.completed === true) {
           count++;
         }
