@@ -7,7 +7,7 @@ request(url, function (error, response, body) {
   } else {
     const data = JSON.parse(body);
     for (const val of data.characters) {
-      request(val, function (error, response, body1) {
+      request.get(val, function (error, response, body1) {
         if (error) {
           console.log(error);
         } else {
