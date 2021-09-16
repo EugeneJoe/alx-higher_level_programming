@@ -7,10 +7,10 @@ request(process.argv[2], function (error, response, body) {
     let movies = 0;
     const data = JSON.parse(body);
     for (const val of data.results) {
-      if (val
-        .characters
-        .includes('https://swapi-api.hbtn.io/api/people/18/')) {
-        movies++;
+      for (const val2 of val.characters) {
+        if (val2.search('18/') > 0) {
+           movies++;
+        }
       }
     }
     console.log(movies);
