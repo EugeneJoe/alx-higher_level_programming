@@ -6,24 +6,11 @@ request(process.argv[2], function (error, response, body) {
   } else {
     const data = JSON.parse(body);
     let user = data[0].userId;
-    let count = 0;
     const dict = {};
     for (const val of data) {
-      if (user === val.userId && val.completed === true) {
-        count++;
-      } else if (user !== val.userId) {
-        if (count > 0) {
-          dict[user] = count;
-          count = 0;
-        }
-        if (val.completed === true) {
-          count++;
-        }
-        user = val.userId;
+      if (val.completed) {
+	  dict[val.userId] = (dict[val.userId] || 0) + 1;
       }
-    }
-    if (count > 0) {
-      dict[user] = count;
     }
     console.log(dict);
   }
