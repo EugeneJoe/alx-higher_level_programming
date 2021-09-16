@@ -9,7 +9,7 @@ request(process.argv[2], function (error, response, body) {
     for (const val of data.results) {
       for (const val2 of val.characters) {
         if (val2.search('18/') > 0) {
-           movies++;
+          movies++;
         }
       }
     }
