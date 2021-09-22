@@ -4,7 +4,7 @@ $(document).ready(function () {
       url: 'https://www.fourtonfish.com/hellosalut/hello/',
       type: 'GET',
       data: {
-        lang: $('#language_code').text()
+        lang: $('#language_code').val()
       },
       dataType: 'jsonp',
       success: function (hello) {
