@@ -6,6 +6,7 @@ $(document).ready(function () {
       data: {
         lang: $('#language_code').text()
       },
+      dataType: 'jsonp',
       success: function (hello) {
         $('#hello').text(hello.hello);
       }
