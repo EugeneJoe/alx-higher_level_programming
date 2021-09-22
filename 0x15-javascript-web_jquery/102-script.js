@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $('#btn_translate').click(function () {
     $.ajax({
-      url: 'https://www.fourtonfish.com/hellosalut/hello/',
+      url: 'https://www.fourtonfish.com/hellosalut/',
       type: 'GET',
       data: {
         lang: $('#language_code').val()
