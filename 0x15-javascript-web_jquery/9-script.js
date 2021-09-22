@@ -1,7 +1,8 @@
 $(document).ready(function () {
   $.ajax({
-    url: 'https://swapi-api.hbtn.io/api/people/5/?format=json',
+    url: 'https://fourtonfish.com/hellosalut/?lang=fr',
     type: 'GET',
+    dataType: 'jsonp',
     success: function (data) {
       $('#hello').text(data.hello);
     }
