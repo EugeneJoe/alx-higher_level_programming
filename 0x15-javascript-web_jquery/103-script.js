@@ -8,14 +8,10 @@ $(document).ready(function () {
 });
 
 function ola () {
-  $.ajax({
-    url: 'https://www.fourtonfish.com/hellosalut/hello/',
-    type: 'GET',
-    data: {
-      lang: $('#language_code').text()
-    },
-    success: function (hello) {
+  $.get(
+    'https://fourtonfish.com/hellosalut/?lang=${$("language_code").val()}',
+    function (hello) {
       $('#hello').text(hello.hello);
     }
-  });
+  );
 }

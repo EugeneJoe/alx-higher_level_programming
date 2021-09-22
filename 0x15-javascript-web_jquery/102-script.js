@@ -5,6 +5,6 @@ $(document).ready(function () {
       function (hello) {
         $('#hello').text(hello.hello);
       }
-    )
+    );
   });
 });
